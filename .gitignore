@@ -1,0 +1,8 @@
+# backups & local
+*.bak
+*.bak_prepixel
+index.html.bak*
+.DS_Store
+Thumbs.db
+# server-side config, not needed for static deploy
+supabase/

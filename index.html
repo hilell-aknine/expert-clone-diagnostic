@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<!-- Meta Pixel Code (Hillel personal) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2132323570952002');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="אבחון 3 דקות שמראה לבעלי קורסים כמה כסף הם מפסידים מנטישה ואיפה היא קורית">
+<title>אבחון כשל יישומי · Expert Clone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --deep-petrol: #003B46;
+    --muted-teal: #00606B;
+    --dusty-aqua: #2F8592;
+    --frost-white: #E8F1F2;
+    --gold: #D4AF37;
+    --gold-soft: #b8951e;
+    --bg-deep: #001f25;
+    --bg-card: #00343d;
+    --bg-card-elev: #004553;
+    --text-primary: #F5F8F8;
+    --text-soft: #b8c8cb;
+    --text-mute: #7c8e92;
+    --red-flag: #e07a5f;
+    --border: rgba(212, 175, 55, 0.18);
+    --border-soft: rgba(232, 241, 242, 0.08);
+    --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Heebo', system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at 80% 0%, rgba(47, 133, 146, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 0% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 55%),
+      var(--bg-deep);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+    min-height: 100vh;
+  }
+
+  /* progress bar */
+  .progress-wrap {
+    position: sticky;
+    top: 0;
+    background: var(--bg-deep);
+    padding: 12px 0 16px;
+    z-index: 10;
+  }
+  .progress-bar {
+    height: 4px;
+    width: 100%;
+    background: var(--border-soft);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--dusty-aqua), var(--gold));
+    width: 0%;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .progress-text {
+    font-size: 12px;
+    color: var(--text-mute);
+    margin-top: 6px;
+    text-align: left;
+    letter-spacing: 0.3px;
+  }
+
+  .screen {
+    display: none;
+    animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .screen.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* hero */
+  .hero {
+    padding: 48px 0 32px;
+    text-align: right;
+  }
+  .hero .eyebrow {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 22px;
+  }
+  .hero h1 .accent {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero .sub {
+    font-size: 18px;
+    color: var(--text-soft);
+    margin-bottom: 36px;
+    max-width: 600px;
+  }
+  .context-list {
+    list-style: none;
+    margin-bottom: 36px;
+    padding: 0;
+  }
+  .context-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    color: var(--text-soft);
+    font-size: 15px;
+  }
+  .context-list li::before {
+    content: "·";
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1;
+    margin-top: -4px;
+  }
+
+  /* card */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-card);
+  }
+  .card.elev {
+    background: var(--bg-card-elev);
+    border-color: var(--border);
+  }
+
+  /* question */
+  .q-meta {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+  }
+  .q-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3.6vw, 30px);
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .q-hint {
+    color: var(--text-mute);
+    font-size: 14px;
+    margin-bottom: 22px;
+    font-style: italic;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .opt {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+    width: 100%;
+    font-family: inherit;
+  }
+  .opt:hover {
+    border-color: var(--dusty-aqua);
+    background: var(--bg-card-elev);
+    transform: translateY(-1px);
+  }
+  .opt.selected {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.08);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+  .opt.warn {
+    color: var(--red-flag);
+  }
+  .opt.warn.selected {
+    border-color: var(--red-flag);
+    background: rgba(224, 122, 95, 0.08);
+    box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.15);
+  }
+
+  /* lead form */
+  .field {
+    margin-bottom: 18px;
+  }
+  .field label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 6px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .field input {
+    width: 100%;
+    background: var(--bg-deep);
+    border: 1.5px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.18s;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .field .err {
+    color: var(--red-flag);
+    font-size: 13px;
+    margin-top: 6px;
+    display: none;
+  }
+  .field.has-err .err { display: block; }
+  .field.has-err input { border-color: var(--red-flag); }
+
+  /* navigation */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .btn {
+    background: var(--gold);
+    color: var(--bg-deep);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.3px;
+  }
+  .btn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .btn.lg { padding: 18px 36px; font-size: 18px; }
+  .btn.full { width: 100%; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-soft);
+    border: 1.5px solid var(--border-soft);
+  }
+  .btn-ghost:hover { background: var(--bg-card-elev); color: var(--text-primary); }
+
+  /* report */
+  .report-head {
+    text-align: center;
+    padding: 32px 0 20px;
+  }
+  .report-head .label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+  .report-head h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: clamp(24px, 4vw, 34px);
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+  .money-box {
+    background: linear-gradient(135deg, var(--bg-card-elev) 0%, var(--bg-card) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .money-box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 60%);
+  }
+  .money-box .small {
+    font-size: 14px;
+    color: var(--text-soft);
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .money-amount {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 64px);
+    color: var(--gold);
+    margin: 8px 0;
+    line-height: 1;
+    position: relative;
+    letter-spacing: -1px;
+  }
+  .money-box .caption {
+    font-size: 15px;
+    color: var(--text-primary);
+    margin-top: 14px;
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .diag {
+    background: var(--bg-card);
+    border-right: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-primary);
+  }
+  .diag-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .a2-block {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin: 32px 0 24px;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .a2-block strong { color: var(--gold); }
+
+  .cta-wrap {
+    text-align: center;
+    margin-top: 36px;
+  }
+  .cta-wrap .pre {
+    font-size: 16px;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+  }
+  .cta-wrap h2 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--text-mute);
+    font-size: 12px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  @media (min-width: 600px) {
+    .container { padding: 32px 24px 80px; }
+    .card { padding: 40px; }
+    .cta-row { flex-direction: row; justify-content: center; }
+    .cta-row .btn { flex: 0 1 auto; }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+    <div id="progress-text" class="progress-text"></div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section id="screen-hero" class="screen active">
+    <div class="hero">
+      <div class="eyebrow">אבחון כשל יישומי · 3 דקות</div>
+      <h1>הקורס שלך לא נכשל כי <span class="accent">חסר תוכן</span>.<br>הוא נכשל כי אין מי שמלווה את הלומד ברגע שאתה לא שם.</h1>
+      <p class="sub">תוך 3 דקות תקבל דוח אישי עם המספרים שלך · כמה כסף אתה מפסיד מנטישה, איפה היא קורית, ולמה בוט גנרי לא יפתור את זה.</p>
+      <ul class="context-list">
+        <li>למי מיועד · בעלי קורסים דיגיטליים פעילים, מנטורים, מומחים שמלמדים</li>
+        <li>אורך · 13 שאלות, 3 דקות בפועל</li>
+        <li>מה תקבל · דוח אישי עם חישוב כספי + 3 אבחנות ממוקדות לעסק שלך</li>
+      </ul>
+    </div>
+    <button class="btn lg full" id="btn-start-hero">תתחיל את האבחון</button>
+    <div class="footer">אם אין לך 3 דקות עכשיו, הדף שמור · אפשר לחזור מאוחר יותר</div>
+  </section>
+
+  <!-- ========== LEAD CAPTURE ========== -->
+  <section id="screen-lead" class="screen">
+    <div class="card">
+      <div class="q-meta">לפני שמתחילים</div>
+      <h2 class="q-title">פרטים שיאפשרו לי לשלוח לך את הדוח</h2>
+      <p class="q-hint" style="margin-bottom:24px">נשמור את הפרטים כדי לשלוח את הדוח לאחר מכן ולחזור אליך אם הוא חושף משהו מעניין. אם אין שיחה · אין רעש.</p>
+
+      <div class="field" data-field="name">
+        <label>שם פרטי</label>
+        <input type="text" id="lead-name" autocomplete="given-name" required>
+        <div class="err">נא למלא שם</div>
+      </div>
+      <div class="field" data-field="email">
+        <label>אימייל</label>
+        <input type="email" id="lead-email" autocomplete="email" required>
+        <div class="err">נא להקליד אימייל תקין</div>
+      </div>
+      <div class="field" data-field="whatsapp">
+        <label>וואטסאפ (05xxxxxxxx או 972xxxxxxxxx)</label>
+        <input type="tel" id="lead-whatsapp" autocomplete="tel" required>
+        <div class="err">נא למלא מספר וואטסאפ תקין</div>
+      </div>
+      <div class="field" data-field="course">
+        <label>שם הקורס או העסק</label>
+        <input type="text" id="lead-course" required>
+        <div class="err">נא למלא</div>
+      </div>
+
+      <div class="nav">
+        <button class="btn-ghost btn" id="btn-lead-back">חזרה</button>
+        <button class="btn" id="btn-lead-next">המשך לשאלון</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUESTIONS (rendered dynamically) ========== -->
+  <section id="screen-question" class="screen">
+    <div class="card" id="question-card"><!-- filled by JS --></div>
+  </section>
+
+  <!-- ========== REPORT ========== -->
+  <section id="screen-report" class="screen">
+    <div class="report-head">
+      <div class="label">דוח אישי · על בסיס התשובות שלך</div>
+      <h1 id="report-title">שלום, זה מה שמצאנו אצלך</h1>
+    </div>
+
+    <div class="money-box">
+      <div class="small">הכסף שלומדים שלך כבר שילמו לך השנה ולא קיבלו תמורה מלאה</div>
+      <div class="money-amount" id="money-amount">— ₪</div>
+      <div class="caption" id="money-caption"></div>
+    </div>
+
+    <div id="diagnoses"><!-- 3 diagnoses inserted here --></div>
+
+    <div class="a2-block">
+      מה שהבנת תוך כדי השאלון הזה הוא הדבר הכי חשוב · <strong>התוכן שלך לא הבעיה.</strong>
+      הבעיה היא שאין מי שמלווה את הלומד שלך 24/7 בוואטסאפ, יודע איפה הוא בקורס, יודע מה אתה כבר אמרת על השאלה הזאת בשיעור 7 · ולוחץ עליו בעדינות לחזור.
+      בוט גנרי לא יעשה את זה. סוכנות שיווק תביא לך עוד לומדים שייפלו באותו מקום.
+      הדבר היחיד שיעבוד הוא <strong>שכפול של ה-DNA שלך לסוכן AI אישי</strong> שעובד בשבילך · מה שאני קורא לו Expert Clone.
+    </div>
+
+    <div class="cta-wrap">
+      <div class="pre">אם הדוח דייק אותך</div>
+      <h2>שווה לדבר 30 דקות. לא מכירה · אבחנה.</h2>
+      <p style="color:var(--text-soft); font-size:15px; max-width:520px; margin:0 auto;">אחזיר לך בשיחה את 3 הצעדים שאתה יכול לעשות עוד החודש, גם אם בסוף לא נעבוד יחד.</p>
+      <div class="cta-row">
+        <a class="btn lg" id="btn-whatsapp" href="#" target="_blank" rel="noopener">תיאום שיחה בוואטסאפ</a>
+        <button class="btn-ghost btn lg" id="btn-restart">למלא שוב</button>
+      </div>
+    </div>
+
+    <div class="footer">© Expert Clone · אבחון כשל יישומי · גרסת ניסוי</div>
+  </section>
+</div>
+
+<script>
+/* =========================================================================
+   STATE & CONFIG
+   ========================================================================= */
+const CONFIG = {
+  whatsappPhone: '972549116092',  // הילל
+  // Google Sheets via gmail-api Apps Script (best-effort, no-cors)
+  // כדי לאפשר שמירה ב-Sheets: יש להחליף את הערך הזה ב-token החדש שתקצה לאבחון.
+  // אם הערך נשאר ריק/PLACEHOLDER · השמירה האוטומטית מדולגת, הליד מגיע רק דרך וואטסאפ.
+  sheetsToken: '__GMAIL_API_TOKEN__',
+  sheetsUrl: 'https://script.google.com/macros/s/AKfycbxtH1yYVyv8j561ztm1EJ0fIal9DD75wT9JFUokTh0jPkwc06yzlL_b9v7cCFgL3kXT/exec',
+  sheetName: 'expert_clone_diagnostics'
+};
+
+const state = {
+  screenIdx: 0,    // 0=hero, 1=lead, 2-14=q1-q13, 15=report
+  lead: { name: '', email: '', whatsapp: '', course: '' },
+  answers: {}      // q1..q13, supporting multi-select for q10
+};
+
+/* =========================================================================
+   QUESTIONS DATA
+   ========================================================================= */
+const QUESTIONS = [
+  {
+    id: 'q1', category: 'גודל הבעיה הכלכלית',
+    title: 'כמה לומדים פעילים יש לך כרגע בקורס?',
+    hint: 'בערך · לא צריך לבדוק במערכת',
+    options: ['עד 50', '50 – 200', '200 – 1,000', 'מעל 1,000']
+  },
+  {
+    id: 'q2', category: 'גודל הבעיה הכלכלית',
+    title: 'מה המחיר של הקורס שלך?',
+    hint: 'פר לומד · ממוצע אם יש כמה חבילות',
+    options: ['עד 500 ₪', '500 – 2,000 ₪', '2,000 – 5,000 ₪', 'מעל 5,000 ₪']
+  },
+  {
+    id: 'q3', category: 'גודל הבעיה הכלכלית',
+    title: 'מתוך 100 לומדים שנכנסים לקורס · כמה באמת מסיימים אותו מהתחלה לסוף?',
+    hint: 'תהיה כן רגע. לא נתון מהדשבורד · תחושה אמיתית',
+    options: ['פחות מ-20', '20 – 40', '40 – 60', 'יותר מ-60']
+  },
+  {
+    id: 'q4', category: 'עומס שירות לקוחות',
+    title: 'כמה שעות בשבוע אתה (או הצוות) מקדישים לענות על שאלות חוזרות של לומדים?',
+    options: ['פחות משעה', '1 – 3 שעות', '3 – 8 שעות', 'מעל 8 שעות']
+  },
+  {
+    id: 'q5', category: 'עומס שירות לקוחות',
+    title: 'בסולם 1-10 · כמה אתה מתוסכל מכך שאותן שאלות חוזרות שוב ושוב?',
+    options: ['1 – 3 (כמעט אפס)', '4 – 6 (לפעמים)', '7 – 8 (לעיתים קרובות)', '9 – 10 (כל יום)']
+  },
+  {
+    id: 'q6', category: 'עומס שירות לקוחות',
+    title: 'איזה סוג שאלה הלומדים שלך שואלים הכי הרבה?',
+    hint: 'בחר את האפשרות שהכי דומה למצב אצלך',
+    options: [
+      '"איפה השיעור הזה? לא מוצא"',
+      '"איך עושים את התרגיל הזה? לא הבנתי"',
+      '"אני תקוע · לא מתקדם"',
+      '"מה הצעד הבא בשבילי?"',
+      'כמעט ולא שואלים אותי כלום'
+    ],
+    warnIdx: 4
+  },
+  {
+    id: 'q7', category: 'מודעות לחלופות',
+    title: 'ניסית בעבר להעמיד בוט / GPT / אוטומציה כדי לעזור ללומדים שלך?',
+    options: [
+      'כן · וזה עזר',
+      'כן · ולא היה שווה את ההשקעה',
+      'ניסיתי בעצמי, לא הצלחתי להטמיע',
+      'חשבתי על זה אבל לא יצא לפעולה',
+      'לא חשבתי בכלל'
+    ]
+  },
+  {
+    id: 'q8', category: 'מודעות לחלופות',
+    title: 'מה הכי הפריע לך בניסיון ההוא?',
+    hint: 'בחר אחד עיקרי',
+    skipIf: (a) => a.q7 === 4,
+    options: [
+      'התשובות לא היו מהקורס שלי · היו גנריות',
+      'הלומדים הרגישו נטושים, "לא מדבר אליי"',
+      'לא ידע איפה הלומד נמצא בקורס',
+      'היה צריך לתחזק כל הזמן ולתקן',
+      'בכלל לא חזרו להשתמש בו'
+    ]
+  },
+  {
+    id: 'q9', category: 'מודל הנטישה',
+    title: 'איפה רוב הלומדים שלך נופלים?',
+    options: [
+      'בשליש הראשון של הקורס',
+      'באמצע',
+      'לקראת הסוף',
+      'אחרי שיעור ספציפי שבו "הם נתקעים"',
+      'אין דפוס ברור · נושרים לכל אורך הדרך'
+    ]
+  },
+  {
+    id: 'q10', category: 'מודל הנטישה',
+    title: 'כשלומד עוזב · מה הסיבה שהוא נותן (אם הוא בכלל אומר)?',
+    hint: 'אפשר לבחור עד שתיים',
+    multi: true, maxSelect: 2,
+    options: [
+      '"אין לי זמן"',
+      '"לא הבנתי את החומר"',
+      '"זה לא בשבילי"',
+      '"אני אחזור בהמשך" (ולא חוזר)',
+      'לא אומרים שום דבר · פשוט נעלמים'
+    ],
+    warnIdx: 4
+  },
+  {
+    id: 'q11', category: 'קיבולת ומחויבות',
+    title: 'כמה אתה משקיע בחודש בכלים / תוכן / שיווק לקורס?',
+    options: [
+      'כמעט כלום',
+      'עד 1,000 ₪',
+      '1,000 – 5,000 ₪',
+      '5,000 – 15,000 ₪',
+      'מעל 15,000 ₪'
+    ]
+  },
+  {
+    id: 'q12', category: 'קיבולת ומחויבות',
+    title: 'מי מקבל החלטות על תוספות מערכת בקורס?',
+    options: [
+      'אני לבד',
+      'אני ושותף עסקי',
+      'צריך אישור של מנכ"ל / שותף בכיר',
+      'מורכב · צריך הסכמה של כמה גורמים'
+    ]
+  },
+  {
+    id: 'q13', category: 'קיבולת ומחויבות',
+    title: 'אם היה לך עכשיו פתרון שמעלה אחוז סיום מ-30% ל-70% · מתי היית רוצה להתחיל?',
+    options: [
+      'עכשיו, השבוע אם אפשר',
+      'בחודש הקרוב',
+      'ברבעון הקרוב',
+      'צריך לראות ולחשוב',
+      'מעניין אבל לא דחוף לי'
+    ]
+  }
+];
+
+/* =========================================================================
+   CALCULATIONS
+   ========================================================================= */
+const Q1_MID = [25, 125, 600, 1500];
+const Q2_MID = [300, 1250, 3500, 7500];
+const Q3_MID = [0.10, 0.30, 0.50, 0.75];
+const Q4_MID = [0.5, 2, 5.5, 12];
+
+function calcMoneyLost() {
+  const learners = Q1_MID[state.answers.q1] ?? 0;
+  const price = Q2_MID[state.answers.q2] ?? 0;
+  const completion = Q3_MID[state.answers.q3] ?? 0;
+  return Math.round(learners * price * (1 - completion));
+}
+
+function calcLostLearners() {
+  const learners = Q1_MID[state.answers.q1] ?? 0;
+  const completion = Q3_MID[state.answers.q3] ?? 0;
+  return Math.round(learners * (1 - completion));
+}
+
+function calcHoursPerYear() {
+  const weekly = Q4_MID[state.answers.q4] ?? 0;
+  return Math.round(weekly * 52);
+}
+
+function fmtCurrency(n) {
+  return n.toLocaleString('he-IL') + ' ₪';
+}
+
+/* =========================================================================
+   DIAGNOSES
+   ========================================================================= */
+const DIAGNOSES = {
+  D2: {
+    title: 'השעות שלא תקבל בחזרה',
+    activate: a => a.q4 >= 2,
+    text: () => `${calcHoursPerYear()} שעות בשנה מהזמן שלך הולכות לענות על שאלות שכבר ענית עליהן.
+      זה לא ניהול קורס · זה שירות לקוחות בתחפושת.
+      בקצב הזה אתה משלם לעצמך פחות מסטודנט בקופה. ולמה? כי הלומד לא יודע איפה הוא נמצא.`
+  },
+  D3: {
+    title: 'התסכול הוא תסמין, לא הבעיה',
+    activate: a => a.q5 >= 2,
+    text: () => {
+      const labels = ['נמוך', 'בינוני', '7-8 מתוך 10', '9-10 מתוך 10'];
+      const score = labels[state.answers.q5];
+      return `ציון תסכול ${score} לא אומר שיש לך בעיית מצב רוח. הוא אומר שאתה רואה מבפנים שהמערכת לא מחזיקה את הלומד · והאינטואיציה שלך צודקת.
+        הבעיה לא במה שאתה אומר. היא במה שאין מי שאומר ללומד ברגעים שבהם אתה לא שם.`;
+    }
+  },
+  D4: {
+    title: 'נטישה מוקדמת · בעיית on-boarding',
+    activate: a => a.q9 === 0,
+    text: () => `כשרוב הנטישה בשליש הראשון, זה לא "הם לא רציניים" · זה שהלומד לא הצליח לבנות הרגל.
+      בשבועיים הראשונים הוא צריך שוטר אישי שיוודא שהוא חוזר.
+      אם השוטר הזה לא קיים, הוא לא יבנה הרגל לבד. זה לא תכונה שלו · זה תכונה של מערכת הלמידה.`
+  },
+  D5: {
+    title: 'נטישת אמצע · חסר nurturing',
+    activate: a => a.q9 === 1,
+    text: () => `באמצע הקורס נופלים מי שכבר התחילו להאמין שזה אפשרי, אבל פגעו בקיר הראשון של המורכבות.
+      אם אין מי שמלווה אותם דרך הקיר הזה · הם מסיקים ש"זה לא בשבילי".
+      הם לא טועים. הסביבה שלך לא תמכה במעבר.`
+  },
+  D6: {
+    title: 'בוט בלי תודעה שלך',
+    activate: a => a.q7 === 1 || a.q8 === 0,
+    text: () => `הלומדים שלך כבר ניסו את הבוט שלך פעם אחת. הם הרגישו "מדבר עם קיר חכם, לא עם המורה".
+      בפעם השנייה הם לא יחזרו.
+      זה לא בעיה של AI · זו בעיה של בוט בלי תודעה שלך. הוא לא ידע מה אמרת בשיעור 7, ולא ידע איפה הלומד נופל בדרך כלל. הוא הגיב לסימן, לא ללומד.`
+  },
+  D7: {
+    title: 'השקט הוא הסכנה האמיתית',
+    activate: a => a.q6 === 4 || (Array.isArray(a.q10) && a.q10.includes(4)),
+    text: () => `שקט מצד הלומדים זה לא סימן שהם בסדר. זה סימן שהם כבר עזבו · ולא מצאו לנכון לעדכן אותך.
+      כל לומד שותק שלא חזר אליך השבוע · סיכוי גבוה שגם לא יחזור החודש.
+      אתה לא יודע מי הם, אבל הם רוצים את הכסף בחזרה רגשית, גם אם לא יבקשו אותו ברצינות.`
+  },
+  D8: {
+    title: 'אתה במצב "מודע ומחפש"',
+    activate: a => a.q13 <= 1,
+    text: () => `מהתשובות שלך אתה לא בשלב "אולי יום אחד".
+      אתה בשלב "אני יודע שיש פה בעיה ואני רוצה לפתור אותה השבוע".
+      זה השלב היחיד שבו פתרון בכלל עוזר · אם הדוח הזה מהדהד אצלך, שווה לדבר 30 דקות.`
+  },
+  D9: {
+    title: 'נטישת סוף · לפני קו הסיום',
+    activate: a => a.q9 === 2,
+    text: () => `הלומדים שלך משלימים את רוב הקורס · ואז נעצרים.
+      זה הדפוס הכי מתסכל · כי הם כבר השקיעו את העבודה הקשה, ולא קוטפים את הפרי.
+      בקצה הם לא נתקעים בתוכן · הם נתקעים בלי מי שיגיד "אתה כמעט שם, תסיים את זה השבוע".`
+  },
+  D10: {
+    title: 'קיר ספציפי · נקודת תקיעה אחת',
+    activate: a => a.q9 === 3,
+    text: () => `יש לך שיעור אחד שהורג לך את המשפך.
+      אתה יודע איזה · אבל אתה לא יכול לפתור אותו בלי לדעת איפה כל לומד נתקע אישית.
+      הקיר הזה דורש ליווי 1:1 · משהו שאתה לא יכול לעשות בקנה מידה. בוט שלא יודע איפה הלומד נמצא לא יזהה את הקיר. רק סוכן עם state יוכל.`
+  },
+  D11: {
+    title: 'נטישה ללא דפוס · המערכת לא מנווטת',
+    activate: a => a.q9 === 4,
+    text: () => `כשלומדים נושרים "בכל אורך הדרך" · זה לא אומר שיש בעיה בכל מקום.
+      זה אומר שלכל לומד הסיבה שלו · ואין מערכת אחת שעוקבת אחרי כל אחד בנפרד.
+      תוכן אחיד לא יפתור את זה. רק ליווי שמתאים את עצמו ללומד הספציפי, ברגע ספציפי, יתקן את זה.`
+  }
+};
+
+function selectDiagnoses() {
+  const a = state.answers;
+  const picks = [];
+
+  // Slot 2 — pain pattern (always lands on something since Q9 is required)
+  // Priority: support-load → frustration → silence → Q9-specific
+  for (const k of ['D2', 'D3', 'D7', 'D4', 'D5', 'D9', 'D10', 'D11']) {
+    if (DIAGNOSES[k].activate(a)) { picks.push(k); break; }
+  }
+  // Slot 3 — solution / readiness
+  // Priority: bot history → Q9-specific not used → readiness → fallback
+  for (const k of ['D6', 'D4', 'D5', 'D9', 'D10', 'D11', 'D8', 'D7', 'D3', 'D2']) {
+    if (picks.includes(k)) continue;
+    if (DIAGNOSES[k].activate(a)) { picks.push(k); break; }
+  }
+  return picks;
+}
+
+/* =========================================================================
+   NAVIGATION
+   ========================================================================= */
+function totalSteps() {
+  // hero + lead + 13 questions + report = 16 steps; index 0..15
+  return 1 + 1 + QUESTIONS.length + 1;
+}
+
+function updateProgress() {
+  const idx = state.screenIdx;
+  const total = totalSteps();
+  const pct = Math.round((idx / (total - 1)) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  const txt = document.getElementById('progress-text');
+  if (idx === 0) txt.textContent = '';
+  else if (idx === 1) txt.textContent = 'פרטים · לפני התחלה';
+  else if (idx >= 2 && idx <= 14) txt.textContent = `שאלה ${idx - 1} מתוך ${QUESTIONS.length}`;
+  else txt.textContent = 'דוח';
+}
+
+function showScreen(idx) {
+  state.screenIdx = idx;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+
+  if (idx === 0) document.getElementById('screen-hero').classList.add('active');
+  else if (idx === 1) document.getElementById('screen-lead').classList.add('active');
+  else if (idx >= 2 && idx <= 14) {
+    document.getElementById('screen-question').classList.add('active');
+    renderQuestion(idx - 2);
+  }
+  else if (idx === 15) {
+    document.getElementById('screen-report').classList.add('active');
+    renderReport();
+  }
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextScreen() {
+  let next = state.screenIdx + 1;
+  // skip Q8 if Q7 = "לא חשבתי בכלל"
+  if (next >= 2 && next <= 14) {
+    const qIdx = next - 2;
+    const q = QUESTIONS[qIdx];
+    if (q.skipIf && q.skipIf(state.answers)) {
+      state.answers[q.id] = null; // mark skipped
+      next++;
+    }
+  }
+  showScreen(next);
+}
+
+function prevScreen() {
+  let prev = state.screenIdx - 1;
+  if (prev >= 2 && prev <= 14) {
+    const qIdx = prev - 2;
+    const q = QUESTIONS[qIdx];
+    if (q.skipIf && q.skipIf(state.answers)) prev--;
+  }
+  if (prev < 0) prev = 0;
+  showScreen(prev);
+}
+
+/* =========================================================================
+   QUESTION RENDERING
+   ========================================================================= */
+function renderQuestion(qIdx) {
+  const q = QUESTIONS[qIdx];
+  const card = document.getElementById('question-card');
+  const isMulti = !!q.multi;
+  const current = state.answers[q.id];
+
+  const optsHtml = q.options.map((opt, i) => {
+    const warn = q.warnIdx === i ? ' warn' : '';
+    let selected = '';
+    if (isMulti && Array.isArray(current) && current.includes(i)) selected = ' selected';
+    else if (!isMulti && current === i) selected = ' selected';
+    return `<button type="button" class="opt${warn}${selected}" data-idx="${i}">${opt}</button>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="q-meta">${q.category} · שאלה ${qIdx + 1}/${QUESTIONS.length}</div>
+    <h2 class="q-title">${q.title}</h2>
+    ${q.hint ? `<p class="q-hint">${q.hint}</p>` : ''}
+    <div class="options">${optsHtml}</div>
+    <div class="nav">
+      <button class="btn-ghost btn" id="btn-q-back">חזרה</button>
+      <button class="btn" id="btn-q-next" ${current === undefined || (isMulti && (!Array.isArray(current) || current.length === 0)) ? 'disabled' : ''}>המשך</button>
+    </div>
+  `;
+
+  // wire option clicks
+  card.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = parseInt(btn.dataset.idx, 10);
+      if (isMulti) {
+        const cur = Array.isArray(state.answers[q.id]) ? [...state.answers[q.id]] : [];
+        const pos = cur.indexOf(i);
+        if (pos >= 0) cur.splice(pos, 1);
+        else if (cur.length < (q.maxSelect || 999)) cur.push(i);
+        state.answers[q.id] = cur;
+      } else {
+        state.answers[q.id] = i;
+      }
+      renderQuestion(qIdx);
+    });
+  });
+
+  document.getElementById('btn-q-back').addEventListener('click', prevScreen);
+  document.getElementById('btn-q-next').addEventListener('click', () => {
+    if (state.answers[q.id] === undefined) return;
+    if (isMulti && (!Array.isArray(state.answers[q.id]) || state.answers[q.id].length === 0)) return;
+    nextScreen();
+  });
+}
+
+/* =========================================================================
+   LEAD CAPTURE VALIDATION
+   ========================================================================= */
+function validateLead() {
+  const name = document.getElementById('lead-name').value.trim();
+  const email = document.getElementById('lead-email').value.trim();
+  const whatsapp = document.getElementById('lead-whatsapp').value.trim();
+  const course = document.getElementById('lead-course').value.trim();
+
+  document.querySelectorAll('#screen-lead .field').forEach(f => f.classList.remove('has-err'));
+
+  let ok = true;
+  if (!name) { setErr('name', true); ok = false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('email', true); ok = false; }
+  // accepts 05x-xxxxxxx, 972xxxxxxxxx, +972xxxxxxxxx
+  if (!whatsapp || !/^(\+?972|0)5\d[-\s]?\d{7}$/.test(whatsapp.replace(/[\s-]/g, ''))) { setErr('whatsapp', true); ok = false; }
+  if (!course) { setErr('course', true); ok = false; }
+
+  if (ok) {
+    state.lead = { name, email, whatsapp: normalizePhone(whatsapp), course };
+  }
+  return ok;
+}
+
+function setErr(name, val) {
+  const f = document.querySelector(`#screen-lead .field[data-field="${name}"]`);
+  if (f) f.classList.toggle('has-err', val);
+}
+
+function normalizePhone(p) {
+  let s = p.replace(/[\s-]/g, '');
+  if (s.startsWith('+')) s = s.slice(1);
+  if (s.startsWith('0')) s = '972' + s.slice(1);
+  return s;
+}
+
+/* =========================================================================
+   REPORT
+   ========================================================================= */
+function renderReport() {
+  document.getElementById('report-title').textContent = `שלום ${state.lead.name || ''}, זה מה שמצאנו אצלך`;
+
+  const money = calcMoneyLost();
+  const lostLearners = calcLostLearners();
+  document.getElementById('money-amount').textContent = fmtCurrency(money);
+  document.getElementById('money-caption').textContent =
+    `${lostLearners.toLocaleString('he-IL')} לומדים מתוכם פשוט עזבו לפני הסוף. הכסף נשאר אצלך · אבל גם השם שלך נשאר אצלם, כמומחה שהקורס שלו לא הצליח להם.`;
+
+  const picks = selectDiagnoses();
+  const wrap = document.getElementById('diagnoses');
+  wrap.innerHTML = picks.map(k => {
+    const d = DIAGNOSES[k];
+    return `<div class="diag">
+      <div class="diag-title">${d.title}</div>
+      <div>${d.text()}</div>
+    </div>`;
+  }).join('');
+
+  // CTA WhatsApp message includes the full lead profile for Hillel
+  if (window.fbq) fbq('track', 'Lead');
+  const summary = buildWhatsAppMessage(money, lostLearners, picks);
+  const url = `https://wa.me/${CONFIG.whatsappPhone}?text=${encodeURIComponent(summary)}`;
+  document.getElementById('btn-whatsapp').href = url;
+
+  // best-effort save to Sheets
+  if (CONFIG.sheetsToken && !CONFIG.sheetsToken.startsWith('__')) {
+    saveToSheets(money, lostLearners, picks);
+  }
+}
+
+function buildWhatsAppMessage(money, lostLearners, picks) {
+  const { name, email, whatsapp, course } = state.lead;
+  const a = state.answers;
+  const qSummary = QUESTIONS.map(q => {
+    const ans = a[q.id];
+    if (ans === null || ans === undefined) return null;
+    if (q.multi && Array.isArray(ans)) {
+      const labels = ans.map(i => q.options[i]).join(' + ');
+      return `${q.title}\n→ ${labels}`;
+    }
+    return `${q.title}\n→ ${q.options[ans]}`;
+  }).filter(Boolean).join('\n\n');
+
+  return `סיימתי את האבחון · רוצה לתאם שיחה.
+
+— הפרטים שלי —
+שם: ${name}
+אימייל: ${email}
+וואטסאפ: ${whatsapp}
+קורס/עסק: ${course}
+
+— החישוב —
+כסף שאבד השנה: ${fmtCurrency(money)}
+לומדים שלא סיימו: ${lostLearners}
+דיאגנוזות שעלו: ${picks.map(k => DIAGNOSES[k].title).join(' · ')}
+
+— התשובות שלי —
+${qSummary}`;
+}
+
+function saveToSheets(money, lostLearners, picks) {
+  const row = {
+    timestamp: new Date().toISOString(),
+    name: state.lead.name,
+    email: state.lead.email,
+    whatsapp: state.lead.whatsapp,
+    course: state.lead.course,
+    moneyLost: money,
+    lostLearners: lostLearners,
+    diagnoses: picks.join('|'),
+    ...Object.fromEntries(QUESTIONS.map(q => {
+      const ans = state.answers[q.id];
+      if (ans === null || ans === undefined) return [q.id, ''];
+      if (q.multi && Array.isArray(ans)) return [q.id, ans.map(i => q.options[i]).join(' + ')];
+      return [q.id, q.options[ans]];
+    }))
+  };
+  const url = `${CONFIG.sheetsUrl}?token=${encodeURIComponent(CONFIG.sheetsToken)}&action=appendRow&sheetName=${encodeURIComponent(CONFIG.sheetName)}&data=${encodeURIComponent(JSON.stringify(row))}`;
+  fetch(url, { method: 'GET', mode: 'no-cors' }).catch(() => {});
+}
+
+/* =========================================================================
+   EVENT WIRING
+   ========================================================================= */
+document.getElementById('btn-start-hero').addEventListener('click', () => showScreen(1));
+document.getElementById('btn-lead-back').addEventListener('click', () => showScreen(0));
+document.getElementById('btn-lead-next').addEventListener('click', () => {
+  if (validateLead()) showScreen(2);
+});
+document.getElementById('btn-restart').addEventListener('click', () => {
+  state.lead = { name: '', email: '', whatsapp: '', course: '' };
+  state.answers = {};
+  ['lead-name', 'lead-email', 'lead-whatsapp', 'lead-course'].forEach(id => document.getElementById(id).value = '');
+  showScreen(0);
+});
+
+// init
+showScreen(0);
+</script>
+</body>
+</html>
