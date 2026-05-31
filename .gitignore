@@ -6,3 +6,6 @@ index.html.bak*
 Thumbs.db
 # server-side config, not needed for static deploy
 supabase/
+
+# local design working copy
+index-v2.html
