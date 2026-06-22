@@ -216,6 +216,26 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
     margin: 8px 0; line-height: 1; position: relative; letter-spacing: -1px; text-shadow: 0 0 30px rgba(242,201,76,0.35); }
   .money-box .caption { font-size: 15px; color: var(--frost); margin-top: 14px; line-height: 1.55; position: relative; }
 
+  .calc-explain {
+    margin: -8px 0 26px; padding: 18px 22px; border-radius: 14px;
+    background: var(--glass); border: 1px solid var(--line-strong);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    font-size: 14.5px; color: var(--frost-dim); line-height: 1.75;
+  }
+  .calc-explain summary { cursor: pointer; font-weight: 700; color: var(--aqua); font-size: 15px; list-style: none; outline: none; }
+  .calc-explain summary::-webkit-details-marker { display: none; }
+  .calc-explain summary::before { content: "\25B8  "; }
+  .calc-explain[open] summary::before { content: "\25BE  "; }
+  .calc-explain p { margin: 12px 0 0; }
+  .calc-explain ul { list-style: none; margin: 14px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .calc-explain li { padding: 10px 14px; background: rgba(6,20,26,0.55); border-radius: 10px; border-inline-start: 2px solid var(--aqua-2); }
+  .calc-explain strong { color: var(--gold); font-weight: 700; }
+  .calc-formula {
+    background: rgba(6,20,26,0.7); border: 1px solid rgba(242,201,76,0.18); border-radius: 11px;
+    padding: 14px 16px; margin: 16px 0 0 !important; text-align: center; font-size: 16px; color: var(--frost); direction: ltr;
+  }
+  .calc-note { font-size: 13px; color: var(--frost-faint); font-style: italic; }
+
   .diag {
     position: relative; background: var(--glass); border: 1px solid var(--line-strong); border-inline-start: 3px solid var(--gold);
     border-radius: 12px; padding: 22px 24px; margin-bottom: 16px; font-size: 16px; line-height: 1.65; color: var(--frost-dim);
@@ -265,9 +285,9 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
   <!-- ========== HERO ========== -->
   <section id="screen-hero" class="screen active">
     <div class="hero">
-      <div class="eyebrow">אבחון כשל יישומי · 3 דקות</div>
+      <div class="eyebrow">אבחון נטישה לבעלי קורסים · 3 דקות</div>
       <h1>הקורס שלך לא נכשל כי <span class="accent">חסר תוכן</span>.<br>הוא נכשל כי אין מי שמלווה את הלומד ברגע שאתה לא שם.</h1>
-      <p class="sub">תוך 3 דקות תקבל דוח אישי עם המספרים שלך · כמה כסף אתה מפסיד מנטישה, איפה היא קורית, ולמה בוט גנרי לא יפתור את זה.</p>
+      <p class="sub">תוך 3 דקות תקבל דוח אישי עם המספרים שלך · כמה כסף אתה מפסיד מנטישה, איפה היא קורית, ולמה עוד תוכן או עוד תזכורות לא יפתרו את זה.</p>
       <ul class="context-list">
         <li>למי מיועד · בעלי קורסים דיגיטליים פעילים, מנטורים, מומחים שמלמדים</li>
         <li>אורך · 13 שאלות, 3 דקות בפועל</li>
@@ -321,7 +341,7 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
   <!-- ========== REPORT ========== -->
   <section id="screen-report" class="screen">
     <div class="report-head">
-      <div class="label">דוח אישי · על בסיס התשובות שלך</div>
+      <div class="label">האבחון שלך · מבוסס על מה שדיווחת</div>
       <h1 id="report-title">שלום, זה מה שמצאנו אצלך</h1>
     </div>
 
@@ -331,21 +351,25 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
       <div class="caption" id="money-caption"></div>
     </div>
 
+    <details class="calc-explain" id="calc-explain" open><!-- filled by JS --></details>
+
     <div id="diagnoses"><!-- 3 diagnoses inserted here --></div>
 
     <div class="a2-block">
       מה שהבנת תוך כדי השאלון הזה הוא הדבר הכי חשוב · <strong>התוכן שלך לא הבעיה.</strong>
-      הבעיה היא שאין מי שמלווה את הלומד שלך 24/7 בוואטסאפ, יודע איפה הוא בקורס, יודע מה אתה כבר אמרת על השאלה הזאת בשיעור 7 · ולוחץ עליו בעדינות לחזור.
-      בוט גנרי לא יעשה את זה. סוכנות שיווק תביא לך עוד לומדים שייפלו באותו מקום.
-      הדבר היחיד שיעבוד הוא <strong>שכפול של ה-DNA שלך לסוכן AI אישי</strong> שעובד בשבילך · מה שאני קורא לו Expert Clone.
+      בנית ספרייה, לא חוויה שמושכת פנימה. הקרב על הכסף הבא שלך לא נמצא במודול ה-50 · הוא נמצא בשנייה שבה הלומד מחליט אם ללחוץ "המשך" או לסגור את הטאב.
+      <br><br>
+      את הקרב הזה מנצחים נטפליקס ואינסטגרם · לא כי התוכן שלהם טוב משלך, אלא כי הם בנויים כך שקשה להפסיק. <strong>כל לומד ששילם ולא סיים הוא אדם שיוצא עם תחושה ש"זה לא עבד".</strong> בשוק קטן הסיפורים האלה מצטברים, עד שנדמה לך שאתה מוכר אוויר · גם כשאתה יודע שהתוכן שלך זהב. זה לא נכון · פשוט אף אחד לא בנה ללומד חוויה שמחזירה אותו עד הסוף.
+      <br><br>
+      ואם עכשיו עולה לך הספק "בעוד שנה כל אחד יבנה פורטל עם AI, אז מה הסיפור?" · הנה התשובה. פורטל כולם יידעו לבנות. <strong>פורטל שגורם ללומד לחזור אליו</strong> זה כבר לא טכנולוגיה · זו פסיכולוגיה ועיצוב חוויה. וזה בדיוק מה שאני בונה.
     </div>
 
     <div class="cta-wrap">
       <div class="pre">אם הדוח דייק אותך</div>
-      <h2>שווה לדבר 30 דקות. לא מכירה · אבחנה.</h2>
-      <p style="color:var(--text-soft); font-size:15px; max-width:520px; margin:0 auto;">אחזיר לך בשיחה את 3 הצעדים שאתה יכול לעשות עוד החודש, גם אם בסוף לא נעבוד יחד.</p>
+      <h2>בוא נדבר 30 דקות. לא שיחת מכירה · שיחת אבחון.</h2>
+      <p style="color:var(--text-soft); font-size:15px; max-width:520px; margin:0 auto;">ניקח יחד את התשובות שלך, ואצא איתך עם 3 צעדים מדויקים שאתה יכול ליישם כבר החודש להחזיר לומדים לסיום · גם אם בסוף לא נעבוד יחד. אני לוקח מספר מצומצם של שיחות כאלה בשבוע.</p>
       <div class="cta-row">
-        <a class="btn lg" id="btn-whatsapp" href="#" target="_blank" rel="noopener">תיאום שיחה בוואטסאפ</a>
+        <a class="btn lg" id="btn-whatsapp" href="#" target="_blank" rel="noopener">לתאם את שיחת האבחון</a>
         <button class="btn-ghost btn lg" id="btn-restart">למלא שוב</button>
       </div>
     </div>
@@ -360,19 +384,33 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
    ========================================================================= */
 const CONFIG = {
   whatsappPhone: '972549116092',  // הילל
-  // Google Sheets via gmail-api Apps Script (best-effort, no-cors)
-  // כדי לאפשר שמירה ב-Sheets: יש להחליף את הערך הזה ב-token החדש שתקצה לאבחון.
-  // אם הערך נשאר ריק/PLACEHOLDER · השמירה האוטומטית מדולגת, הליד מגיע רק דרך וואטסאפ.
-  sheetsToken: '__GMAIL_API_TOKEN__',
-  sheetsUrl: 'https://script.google.com/macros/s/AKfycbxtH1yYVyv8j561ztm1EJ0fIal9DD75wT9JFUokTh0jPkwc06yzlL_b9v7cCFgL3kXT/exec',
-  sheetName: 'expert_clone_diagnostics'
+  // מערכת ניהול הלידים המאוחדת (Supabase project expert-clone-bot).
+  // כל ליד נשמר לטבלת leads + שולח התראת וואטסאפ מיידית להלל. source מבדיל מאיפה הגיע.
+  leadEndpoint: 'https://lgixufkqkwdbksbohnxu.supabase.co/functions/v1/lead',
+  supaAnon: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxnaXh1Zmtxa3dkYmtzYm9obnh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMjUxNzYsImV4cCI6MjA5NzYwMTE3Nn0.ig176ITZQfuodxSfktIHEqOxpb4a_dFEt1KsvWr823g'
 };
 
 const state = {
   screenIdx: 0,    // 0=hero, 1=lead, 2-14=q1-q13, 15=report
   lead: { name: '', email: '', whatsapp: '', course: '' },
-  answers: {}      // q1..q13, supporting multi-select for q10
+  answers: {},     // q1..q13, supporting multi-select for q10
+  utm: {},         // מקור התנועה (מאיפה הגיע הליד)
+  leadSent: false  // מונע שליחה כפולה אם ממלאים שוב
 };
+
+function captureUTM() {
+  try {
+    const p = new URLSearchParams(window.location.search);
+    const utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(k => {
+      const v = p.get(k);
+      if (v) utm[k] = v.slice(0, 120);
+    });
+    if (document.referrer) utm.referrer = document.referrer.slice(0, 200);
+    utm.landing = window.location.pathname.slice(0, 120);
+    state.utm = utm;
+  } catch (_) { state.utm = {}; }
+}
 
 /* =========================================================================
    QUESTIONS DATA
@@ -532,6 +570,22 @@ function fmtCurrency(n) {
   return n.toLocaleString('he-IL') + ' ₪';
 }
 
+/* count-up animation for the money amount — called once, no observer loop */
+function runMoneyCountUp(target) {
+  const el = document.getElementById('money-amount');
+  if (!el || !target || target < 1) return;
+  const dur = 1100; let t0 = null;
+  function frame(ts) {
+    if (!t0) t0 = ts;
+    const p = Math.min((ts - t0) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = Math.round(target * eased);
+    el.textContent = '₪' + val.toLocaleString('he-IL');
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
 /* =========================================================================
    DIAGNOSES
    ========================================================================= */
@@ -600,7 +654,7 @@ const DIAGNOSES = {
     activate: a => a.q9 === 3,
     text: () => `יש לך שיעור אחד שהורג לך את המשפך.
       אתה יודע איזה · אבל אתה לא יכול לפתור אותו בלי לדעת איפה כל לומד נתקע אישית.
-      הקיר הזה דורש ליווי 1:1 · משהו שאתה לא יכול לעשות בקנה מידה. בוט שלא יודע איפה הלומד נמצא לא יזהה את הקיר. רק סוכן עם state יוכל.`
+      הקיר הזה דורש שהמערכת תזהה איפה כל לומד נתקע ותחזיר אותו בדיוק שם · משהו שתוכן אחיד לא עושה, אבל חוויה שבנויה סביב הלומד כן.`
   },
   D11: {
     title: 'נטישה ללא דפוס · המערכת לא מנווטת',
@@ -791,6 +845,8 @@ function renderReport() {
   const money = calcMoneyLost();
   const lostLearners = calcLostLearners();
   document.getElementById('money-amount').textContent = fmtCurrency(money);
+  runMoneyCountUp(money);
+  renderCalcExplain(money);
   document.getElementById('money-caption').textContent =
     `${lostLearners.toLocaleString('he-IL')} לומדים מתוכם פשוט עזבו לפני הסוף. הכסף נשאר אצלך · אבל גם השם שלך נשאר אצלם, כמומחה שהקורס שלו לא הצליח להם.`;
 
@@ -810,10 +866,63 @@ function renderReport() {
   const url = `https://wa.me/${CONFIG.whatsappPhone}?text=${encodeURIComponent(summary)}`;
   document.getElementById('btn-whatsapp').href = url;
 
-  // best-effort save to Sheets
-  if (CONFIG.sheetsToken && !CONFIG.sheetsToken.startsWith('__')) {
-    saveToSheets(money, lostLearners, picks);
-  }
+  // שליחה למערכת הלידים המאוחדת + התראת וואטסאפ מיידית (פעם אחת)
+  postLead(money, lostLearners, picks);
+}
+
+function postLead(money, lostLearners, picks) {
+  if (state.leadSent) return;
+  state.leadSent = true;
+  const { name, email, whatsapp, course } = state.lead;
+  const answersReadable = {};
+  QUESTIONS.forEach(q => {
+    const ans = state.answers[q.id];
+    if (ans === null || ans === undefined) return;
+    answersReadable[q.id] = (q.multi && Array.isArray(ans))
+      ? ans.map(i => q.options[i]).join(' + ')
+      : q.options[ans];
+  });
+  const body = {
+    source: 'diagnostic',
+    name, email, phone: whatsapp, course,
+    money_lost: money,
+    diagnoses: picks.map(k => DIAGNOSES[k].title).join(' · '),
+    payload: { lostLearners, answers: answersReadable },
+    utm: state.utm
+  };
+  fetch(CONFIG.leadEndpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': CONFIG.supaAnon,
+      'Authorization': 'Bearer ' + CONFIG.supaAnon
+    },
+    body: JSON.stringify(body)
+  }).catch(() => {});
+}
+
+function renderCalcExplain(money) {
+  const el = document.getElementById('calc-explain');
+  if (!el) return;
+  const learners = Q1_MID[state.answers.q1] ?? 0;
+  const price = Q2_MID[state.answers.q2] ?? 0;
+  const compPct = Math.round((Q3_MID[state.answers.q3] ?? 0) * 100);
+  const lostPct = 100 - compPct;
+  const lblQ1 = QUESTIONS[0].options[state.answers.q1] ?? '';
+  const lblQ2 = QUESTIONS[1].options[state.answers.q2] ?? '';
+  const lblQ3 = QUESTIONS[2].options[state.answers.q3] ?? '';
+  el.innerHTML = `
+    <summary>איך הגענו למספר הזה? (בשפה פשוטה)</summary>
+    <p>לא שלפנו את זה מהמערכת שלך · לקחנו בדיוק את מה ש<strong>אתה</strong> הערכת בשאלון:</p>
+    <ul>
+      <li>לומדים בקורס · בערך <strong>${learners.toLocaleString('he-IL')}</strong> (בחרת "${lblQ1}")</li>
+      <li>מחיר ממוצע ללומד · בערך <strong>${price.toLocaleString('he-IL')} ₪</strong> (בחרת "${lblQ2}")</li>
+      <li>כמה באמת מסיימים · בערך <strong>${compPct}%</strong> (בחרת "${lblQ3}")</li>
+    </ul>
+    <p>כלומר מכל מי ששילם, רק ${compPct}% קיבלו את מלוא הערך. את שאר ה-<strong>${lostPct}%</strong> שלא סיימו הכפלנו במספר הלומדים ובמחיר:</p>
+    <p class="calc-formula">${learners.toLocaleString('he-IL')} × ${price.toLocaleString('he-IL')} ₪ × ${lostPct}% = <strong>${fmtCurrency(money)}</strong></p>
+    <p class="calc-note">זו הערכה זהירה לפי מה שאתה דיווחת. אם המספרים האמיתיים שלך גבוהים יותר · הסכום רק גדל.</p>
+  `;
 }
 
 function buildWhatsAppMessage(money, lostLearners, picks) {
@@ -846,27 +955,6 @@ function buildWhatsAppMessage(money, lostLearners, picks) {
 ${qSummary}`;
 }
 
-function saveToSheets(money, lostLearners, picks) {
-  const row = {
-    timestamp: new Date().toISOString(),
-    name: state.lead.name,
-    email: state.lead.email,
-    whatsapp: state.lead.whatsapp,
-    course: state.lead.course,
-    moneyLost: money,
-    lostLearners: lostLearners,
-    diagnoses: picks.join('|'),
-    ...Object.fromEntries(QUESTIONS.map(q => {
-      const ans = state.answers[q.id];
-      if (ans === null || ans === undefined) return [q.id, ''];
-      if (q.multi && Array.isArray(ans)) return [q.id, ans.map(i => q.options[i]).join(' + ')];
-      return [q.id, q.options[ans]];
-    }))
-  };
-  const url = `${CONFIG.sheetsUrl}?token=${encodeURIComponent(CONFIG.sheetsToken)}&action=appendRow&sheetName=${encodeURIComponent(CONFIG.sheetName)}&data=${encodeURIComponent(JSON.stringify(row))}`;
-  fetch(url, { method: 'GET', mode: 'no-cors' }).catch(() => {});
-}
-
 /* =========================================================================
    EVENT WIRING
    ========================================================================= */
@@ -883,6 +971,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 });
 
 // init
+captureUTM();
 showScreen(0);
 </script>
 
@@ -895,28 +984,6 @@ showScreen(0);
     card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
     card.style.setProperty('--my', (e.clientY - r.top) + 'px');
   });
-  var moneyEl = document.getElementById('money-amount');
-  if (moneyEl) {
-    var animating = false;
-    var obs = new MutationObserver(function () {
-      if (animating) return;
-      var raw = moneyEl.textContent.replace(/[^0-9]/g, '');
-      var target = parseInt(raw, 10);
-      if (!target || target < 1) return;
-      animating = true;
-      var dur = 1100, t0 = null;
-      function frame(ts) {
-        if (!t0) t0 = ts;
-        var p = Math.min((ts - t0) / dur, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        var val = Math.round(target * eased);
-        moneyEl.textContent = '\u20AA' + val.toLocaleString('he-IL');
-        if (p < 1) { requestAnimationFrame(frame); } else { animating = false; }
-      }
-      requestAnimationFrame(frame);
-    });
-    obs.observe(moneyEl, { childList: true, characterData: true, subtree: true });
-  }
 })();
 </script>
 </body>
