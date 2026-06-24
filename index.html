@@ -247,7 +247,6 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
   <!-- ========== HERO ========== -->
   <section id="screen-hero" class="screen active">
     <div class="hero">
-      <div class="eyebrow">אבחון לבעלי קורסים דיגיטליים · 3 דקות</div>
       <h1>יש לך קורס דיגיטלי, ואתה רוצה <span class="accent">שהלקוחות יסיימו אותו וימליצו לחברים</span>?</h1>
       <p class="sub">תוך 3 דקות וכמה שאלות פשוטות תראה איך אפשר לגרום לזה לקרות · ומה חסר לפורטל שלך כדי שהלומדים יחזרו, יסיימו וימליצו.</p>
       <ul class="context-list">
@@ -287,6 +286,7 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
         <input type="text" id="lead-course">
         <div class="err"></div>
       </div>
+      <input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
 
       <div class="nav">
         <button class="btn-ghost btn" id="btn-lead-back">חזרה</button>
@@ -624,6 +624,7 @@ function postLead(have, missing) {
   const { name, whatsapp, course } = state.lead;
   const body = {
     source: 'diagnostic',
+    website: (document.getElementById('lead-website') || {}).value || '',
     name, phone: whatsapp, course,
     diagnoses: missing.map(q => q.gapTitle).join(' · '),
     payload: {
