@@ -651,6 +651,12 @@ function postLead(have, missing) {
     },
     utm: state.utm
   };
+  sendLead(body, 1);
+}
+
+// שליחת ליד עמידה: בודקת שהשרת באמת קיבל (res.ok), מנסה עד 3 פעמים עם השהיה,
+// ואם נכשל סופית שומרת את הליד מקומית כדי שלא יאבד (יישלח שוב בטעינה הבאה).
+function sendLead(body, attempt) {
   fetch(CONFIG.leadEndpoint, {
     method: 'POST',
     headers: {
@@ -659,7 +665,39 @@ function postLead(have, missing) {
       'Authorization': 'Bearer ' + CONFIG.supaAnon
     },
     body: JSON.stringify(body)
-  }).catch(() => {});
+  })
+  .then(function (res) {
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    try { localStorage.removeItem('ec_pending_lead'); } catch (e) {}
+  })
+  .catch(function () {
+    if (attempt < 3) {
+      setTimeout(function () { sendLead(body, attempt + 1); }, 1500 * attempt);
+    } else {
+      try { localStorage.setItem('ec_pending_lead', JSON.stringify(body)); } catch (e) {}
+    }
+  });
+}
+
+// בטעינה: אם ליד קודם נכשל ונשמר מקומית, לנסות לשלוח אותו שוב פעם אחת.
+function flushPendingLead() {
+  var raw;
+  try { raw = localStorage.getItem('ec_pending_lead'); } catch (e) { return; }
+  if (!raw) return;
+  var body;
+  try { body = JSON.parse(raw); }
+  catch (e) { try { localStorage.removeItem('ec_pending_lead'); } catch (_) {} return; }
+  fetch(CONFIG.leadEndpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': CONFIG.supaAnon,
+      'Authorization': 'Bearer ' + CONFIG.supaAnon
+    },
+    body: JSON.stringify(body)
+  })
+  .then(function (res) { if (res.ok) { try { localStorage.removeItem('ec_pending_lead'); } catch (e) {} } })
+  .catch(function () {});
 }
 
 /* =========================================================================
@@ -679,6 +717,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 
 // init
 captureUTM();
+flushPendingLead();
 showScreen(0);
 </script>
 
