@@ -256,7 +256,6 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
       </ul>
     </div>
     <button class="btn lg full" id="btn-start-hero">בוא נתחיל</button>
-    <div class="footer">אם אין לך 3 דקות עכשיו, הדף שמור · אפשר לחזור מאוחר יותר</div>
   </section>
 
   <!-- ========== QUESTIONS (rendered dynamically) ========== -->
@@ -280,11 +279,6 @@ src="https://www.facebook.com/tr?id=2132323570952002&ev=PageView&noscript=1"
         <label>וואטסאפ (05xxxxxxxx או 972xxxxxxxxx)</label>
         <input type="tel" id="lead-whatsapp" autocomplete="tel" required>
         <div class="err">נא למלא מספר וואטסאפ תקין</div>
-      </div>
-      <div class="field" data-field="course">
-        <label>שם הקורס או העסק (לא חובה)</label>
-        <input type="text" id="lead-course">
-        <div class="err"></div>
       </div>
       <input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
 
@@ -380,7 +374,6 @@ const QUESTIONS = [
   {
     id: 'q2', category: 'תמונת מצב',
     title: 'מתוך 100 שנכנסים לקורס · כמה באמת מסיימים אותו?',
-    hint: 'תחושה אמיתית, לא נתון מהדשבורד',
     options: ['פחות מ-20', '20 – 40', '40 – 60', 'יותר מ-60']
   },
   {
@@ -513,7 +506,6 @@ function renderQuestion(qIdx) {
   }).join('');
 
   card.innerHTML = `
-    <div class="q-meta">${q.category} · שאלה ${qIdx + 1}/${QUESTIONS.length}</div>
     <h2 class="q-title">${q.title}</h2>
     ${q.hint ? `<p class="q-hint">${q.hint}</p>` : ''}
     <div class="options">${optsHtml}</div>
@@ -543,7 +535,7 @@ function renderQuestion(qIdx) {
 function validateLead() {
   const name = document.getElementById('lead-name').value.trim();
   const whatsapp = document.getElementById('lead-whatsapp').value.trim();
-  const course = document.getElementById('lead-course').value.trim();
+  const course = '';
 
   document.querySelectorAll('#screen-lead .field').forEach(f => f.classList.remove('has-err'));
 
@@ -694,7 +686,7 @@ document.getElementById('btn-lead-next').addEventListener('click', () => {
 document.getElementById('btn-restart').addEventListener('click', () => {
   state.lead = { name: '', whatsapp: '', course: '' };
   state.answers = {};
-  ['lead-name', 'lead-whatsapp', 'lead-course'].forEach(id => document.getElementById(id).value = '');
+  ['lead-name', 'lead-whatsapp'].forEach(id => document.getElementById(id).value = '');
   showScreen(0);
 });
 
