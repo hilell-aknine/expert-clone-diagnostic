@@ -678,7 +678,10 @@ function flushPendingLead() {
 /* =========================================================================
    EVENT WIRING
    ========================================================================= */
-document.getElementById('btn-start-hero').addEventListener('click', () => showScreen(1));
+document.getElementById('btn-start-hero').addEventListener('click', () => {
+  if (window.fbq && !state.quizStarted) { fbq('track', 'ViewContent'); state.quizStarted = true; }
+  showScreen(1);
+});
 document.getElementById('btn-lead-back').addEventListener('click', () => showScreen(QUESTIONS.length));
 document.getElementById('btn-lead-next').addEventListener('click', () => {
   if (validateLead()) showScreen(STEP_REPORT);
