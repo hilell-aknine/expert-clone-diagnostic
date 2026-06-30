@@ -581,7 +581,7 @@ function renderReport() {
       <div>${q.gapDesc}</div>
     </div>`).join('');
 
-  if (window.fbq) fbq('track', 'Lead');
+  if (window.fbq && !state.leadSent) fbq('track', 'Lead');
   const msg = buildWhatsAppMessage(have, missing);
   document.getElementById('btn-whatsapp').href =
     `https://wa.me/${CONFIG.whatsappPhone}?text=${encodeURIComponent(msg)}`;
