@@ -347,6 +347,9 @@ const CONFIG = {
   // מערכת ניהול הלידים המאוחדת (Supabase project expert-clone-bot).
   // כל ליד נשמר לטבלת leads + שולח התראת וואטסאפ מיידית להלל. source מבדיל מאיפה הגיע.
   leadEndpoint: 'https://vrqtelhjuydocxcletel.supabase.co/functions/v1/lead',
+  // מדידה. יושב על מארח האתר, לא כאן, כי הכתיבה ל-page_events נעשית עם
+  // service_role בצד שרת בלבד. הדפדפן לעולם לא נוגע בטבלה ישירות.
+  eventEndpoint: 'https://architect-of-learning.vercel.app/api/event',
   supaAnon: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZycXRlbGhqdXlkb2N4Y2xldGVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY1MTgxNDcsImV4cCI6MjEwMjA5NDE0N30.nj9TRQeDVoTgEmjqe6NR3UjW8FvDQmwVwTWg-Bb9SRA'
 };
 
@@ -357,6 +360,41 @@ const state = {
   utm: {},         // מקור התנועה (מאיפה הגיע הליד)
   leadSent: false  // מונע שליחה כפולה
 };
+
+/* =========================================================================
+   מדידה
+   -------------------------------------------------------------------------
+   למה זה קיים: עד 9.9.2026 ליד שנחת במסד לא אמר כלום על כוונה. המסך שבו
+   משאירים פרטים אומר "לאן לשלוח לך את התוצאה", ולכן הליד נכתב אוטומטית ברגע
+   שהדוח נטען. הבקשה האמיתית לדבר היא כפתור נפרד בסוף הדוח, והוא לא נמדד
+   בשום מקום. אי אפשר היה לדעת מי ביקש שיחה ומי רק רצה לראות תוצאה.
+
+   פרטיות: page_events היא טבלה נטולת מידע מזהה לפי חוזה. לכן נשלח כאן רק
+   sid אקראי. הקישור בין ה-sid לאדם יושב ברשומת הליד עצמה, ולא כאן.
+   ========================================================================= */
+const SID = (function () {
+  try {
+    var k = 'ec_diag_sid', v = sessionStorage.getItem(k);
+    if (!v) { v = 'd' + Math.random().toString(36).slice(2, 12); sessionStorage.setItem(k, v); }
+    return v;
+  } catch (e) { return 'd' + Math.random().toString(36).slice(2, 12); }
+})();
+
+function ecEvent(name) {
+  try { if (localStorage.getItem('cookie_consent_v2') === 'essential') return; } catch (e) {}
+  try {
+    var body = JSON.stringify({
+      event: name, sid: SID, page: 'diagnostic',
+      utm: state.utm || {},
+      referrer: document.referrer ? String(document.referrer).slice(0, 300) : ''
+    });
+    // keepalive כדי שהאירוע ישרוד גם כשהכפתור מוציא את המשתמש לוואטסאפ.
+    fetch(CONFIG.eventEndpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: body, keepalive: true, mode: 'cors'
+    }).catch(function () {});
+  } catch (e) {}
+}
 
 function captureUTM() {
   try {
@@ -634,11 +672,15 @@ function postLead(have, missing) {
     payload: {
       have, total: FEATURE_COUNT,
       missing: missing.map(q => q.gapTitle),
-      sizing: { students: answerLabel('q1'), completion: answerLabel('q2'), recommend: answerLabel('q3') }
+      sizing: { students: answerLabel('q1'), completion: answerLabel('q2'), recommend: answerLabel('q3') },
+      // מפתח החיבור לאירועי המדידה. בלעדיו אי אפשר לדעת אם דווקא הליד הזה
+      // הוא זה שלחץ אחר כך על "לתאם את שיחת האבחון".
+      sid: SID
     },
     utm: state.utm
   };
   sendLead(body, 1);
+  ecEvent('form_submit');
 }
 
 // שליחת ליד עמידה: בודקת שהשרת באמת קיבל (res.ok), מנסה עד 3 פעמים עם השהיה,
@@ -698,6 +740,13 @@ document.getElementById('btn-lead-back').addEventListener('click', () => showScr
 document.getElementById('btn-lead-next').addEventListener('click', () => {
   if (validateLead()) showScreen(STEP_REPORT);
 });
+// הכפתור היחיד בדף שאומר "אני רוצה לדבר". נמדד גם במסד וגם בפיקסל.
+// trackCustom ולא Lead בכוונה: אירוע Lead משנה על מה מטא מייעלת את הקמפיין,
+// והכפתור הזה נלחץ אחרי שהליד כבר נספר, ולכן היה נספר פעמיים.
+document.getElementById('btn-whatsapp').addEventListener('click', () => {
+  ecEvent('wa_click');
+  try { if (window.fbq) fbq('trackCustom', 'DiagnosticCallRequest'); } catch (e) {}
+});
 document.getElementById('btn-restart').addEventListener('click', () => {
   state.lead = { name: '', whatsapp: '', course: '' };
   state.answers = {};
@@ -707,6 +756,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 
 // init
 captureUTM();
+ecEvent('view');
 flushPendingLead();
 showScreen(0);
 </script>
